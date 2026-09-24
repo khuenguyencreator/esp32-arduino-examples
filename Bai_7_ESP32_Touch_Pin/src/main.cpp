@@ -10,7 +10,7 @@ const int threshold = 20;
 int touchValue;
 
 void setup(){
-  Serial.begin(9600);
+  Serial.begin(115200);
   delay(1000);
   // khởi tạo led là output
   pinMode (ledPin, OUTPUT);

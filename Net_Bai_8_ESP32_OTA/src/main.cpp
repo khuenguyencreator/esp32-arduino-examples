@@ -7,7 +7,7 @@
 
 const char* host = "esp32";
 const char* ssid = "Ten_Wifi_Cua_Ban";
-const char* password = "12345678";
+const char* password = "Mat_Khau_Wifi";
 
 WebServer server(80);
 

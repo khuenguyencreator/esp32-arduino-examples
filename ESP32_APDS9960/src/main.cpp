@@ -25,7 +25,7 @@ Adafruit_APDS9960 apds;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   
   if(!apds.begin()){
     Serial.println("failed to initialize device! Please check your wiring.");

@@ -4,7 +4,7 @@
 #include <WiFi.h>
 #include <string.h>
 const char* ssid = "Ten_Wifi_Cua_Ban";
-const char* password = "Mat_Khau_Wifi" ;
+const char* password = "Mat_Khau_Wifi";
 #define DHTPIN 12     // Digital pin connected to the DHT sensor
 
 #define DHTTYPE DHT11   // DHT 11
@@ -12,11 +12,11 @@ const char* password = "Mat_Khau_Wifi" ;
 //#define DHTTYPE DHT21   // DHT 21 (AM2301)
 
 DHT dht(DHTPIN, DHTTYPE);
-String UrlThingspeak = "https://api.thingspeak.com/update?api_key=Write_API_Key_Cua_Ban";
+String UrlThingspeak = "https://api.thingspeak.com/update?api_key=Write_API_Key_Cua_Ban"; // lay tai tab "API Keys" cua channel ThingSpeak
 
 String httpGETRequest(const char* Url);
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.println(F("DHTxx to Thingspeak!"));
 
   dht.begin();

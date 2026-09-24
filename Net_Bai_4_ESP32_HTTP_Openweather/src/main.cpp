@@ -4,23 +4,23 @@
 #include <Arduino_JSON.h>
 #include <string.h>
 const char* ssid = "Ten_Wifi_Cua_Ban";
-const char* password = "Mat_Khau_Wifi" ;
+const char* password = "Mat_Khau_Wifi";
 
-String weatherApiKey = "Openweather_API_Key_Cua_Ban";
+String weatherApiKey = "Openweather_API_Key_Cua_Ban"; // dang ky mien phi tai openweathermap.org
 
 String city = "Hanoi";
 String countrycode = "";
 String weatherJsonBuffer;
 
 //http config
-String weatherUrl = "http://api.openweathermap.org/data/2.5/weather?q=Hanoi&appid=Openweather_API_Key_Cua_Ban";
+String weatherUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + weatherApiKey;
 
 int temp = 30;
 int humi = 80;
 
 String httpGETRequest(const char* Url);
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
 
   //setup wifi
   WiFi.begin(ssid,password);

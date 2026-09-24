@@ -12,7 +12,7 @@ void IRAM_ATTR buttonPush() {
   portEXIT_CRITICAL_ISR(&mux);//Cho phép tiếp tục chạy các task khác
 }
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   pinMode(button, INPUT_PULLUP);
   // cài đặt ngắt vào chân button, kiểu ngắt là falling (xung xuống), hàm gọi khi có sự kiện ngắt là button push
   attachInterrupt(digitalPinToInterrupt(button), buttonPush, FALLING);

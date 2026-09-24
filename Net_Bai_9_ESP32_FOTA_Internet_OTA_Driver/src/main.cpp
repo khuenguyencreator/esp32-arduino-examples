@@ -4,8 +4,8 @@
 void update_FOTA();
 void setup()
 {
-  Serial.begin(9600);
-  WiFi.begin("SSID", "PASSWORD");
+  Serial.begin(115200);
+  WiFi.begin("Ten_Wifi_Cua_Ban", "Mat_Khau_Wifi");
   Serial.println("Connecting");
   while (WiFi.status() != WL_CONNECTED)
   {
@@ -17,7 +17,7 @@ void setup()
 
 uint32_t updateCounter = 0;
 String version = "1.1";
-String key = "OTAdrive_API_Key_Cua_Ban";
+String key = "OTAdrive_API_Key_Cua_Ban"; // lay tai muc Product cua otadrive.com
 
 void loop()
 {

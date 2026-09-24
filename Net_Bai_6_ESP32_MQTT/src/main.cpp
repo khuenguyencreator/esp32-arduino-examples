@@ -105,7 +105,7 @@ void callback(char* topic, byte *payload, unsigned int length) {
 }
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.setTimeout(500);
   setup_wifi();
   client.setServer(MQTT_SERVER, MQTT_PORT );
