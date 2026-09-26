@@ -5,7 +5,7 @@
 #include <BLEScan.h>
 #include <BLEAdvertisedDevice.h>
 
-// Board Client - quet (scan) tim board Server (bai ESP32-BLE-03_Server),
+// Board Client - quet (scan) tim board Server (bai 05-Bluetooth/02_BLE_Server),
 // ket noi toi, roi ghi gia tri "1"/"0" vao characteristic de dieu khien LED
 // tren board Server tu xa, dua vao trang thai nut nhan tren board Client.
 

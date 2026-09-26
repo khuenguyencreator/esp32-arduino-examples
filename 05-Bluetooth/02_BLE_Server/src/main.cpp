@@ -6,7 +6,7 @@
 #include <BLE2902.h>
 
 // Board Server - tao 1 GATT Service voi 1 Characteristic dieu khien duoc,
-// dien thoai (dung app nRF Connect/BLE Scanner) hoac board ESP32-BLE-02_Client
+// dien thoai (dung app nRF Connect/BLE Scanner) hoac board 05-Bluetooth/03_BLE_Client
 // co the ket noi toi va ghi gia tri "1"/"0" de bat/tat LED.
 
 // UUID mau thuong dung trong cac vi du ESP32 BLE - chi can 2 ben (server/client)

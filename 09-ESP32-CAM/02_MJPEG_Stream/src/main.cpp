@@ -4,7 +4,7 @@
 #include <WiFi.h>
 #include <WebServer.h>
 
-// Bai nay noi tiep ESP32-CAM-01 (chup anh luu the nho) - thay vi chup 1
+// Bai nay noi tiep 09-ESP32-CAM/01_Take_Photo_SD (chup anh luu the nho) - thay vi chup 1
 // tam roi luu, ESP32 se lien tuc chup va gui ve trinh duyet duoi dang
 // video MJPEG (chuoi anh JPEG lien tuc) qua webserver, xem duoc truc tiep
 // tren trinh duyet nhu 1 camera giam sat mini.
