@@ -3,6 +3,7 @@
 Code ví dụ lập trình **ESP32** với **Arduino framework** trên **PlatformIO**, từ ngoại vi cơ bản (GPIO, ADC, PWM, Timer…) đến WiFi, Web Server, BLE, IoT và các dự án hoàn chỉnh. Code đi kèm series [Lập trình ESP32 từ A tới Z](https://khuenguyencreator.com/lap-trinh-esp32-tu-a-toi-z/) trên blog [khuenguyencreator.com](https://khuenguyencreator.com).
 
 - Board: ESP32 DOIT DevKit V1 (`esp32doit-devkit-v1`); riêng nhóm `09-ESP32-CAM` dùng board **ESP32-CAM** (`esp32cam`)
+- Arduino core 2.x (bản PlatformIO `espressif32` đang dùng mặc định)
 - Framework: Arduino (`platform = espressif32`)
 - IDE: VS Code + PlatformIO
 - Serial Monitor: 115200 baud
@@ -14,7 +15,7 @@ Mỗi thư mục nhóm được đánh số theo **thứ tự nên học**, bên
 ```
 esp32-arduino-examples/
 ├── 01-Basic/             Ngoại vi cơ bản
-├── 02-Sensor-I2C/        Cảm biến & màn hình I2C
+├── 02-Sensor-Module/     Cảm biến & module ngoại vi
 ├── 03-WebServer/         Web Server
 ├── 04-Protocol/          Giao thức truyền thông
 ├── 05-Bluetooth/         Bluetooth
@@ -44,18 +45,35 @@ GPIO, ADC, PWM, DAC, ngắt, Timer, Touch và Deep Sleep. Nên học trước ti
 | [08_1_DeepSleep_Timer_WakeUp](01-Basic/08_1_DeepSleep_Timer_WakeUp) | Deep Sleep – đánh thức bằng Timer |  |
 | [08_2_DeepSleep_Touch_WakeUp](01-Basic/08_2_DeepSleep_Touch_WakeUp) | Deep Sleep – đánh thức bằng Touch |  |
 | [08_3_DeepSleep_EXT_WakeUp](01-Basic/08_3_DeepSleep_EXT_WakeUp) | Deep Sleep – đánh thức bằng chân ngoài |  |
+| [12_Hall_Sensor_Internal_Temp](01-Basic/12_Hall_Sensor_Internal_Temp) | Cảm biến Hall và nhiệt độ có sẵn trong chip |  |
+| [13_RMT](01-Basic/13_RMT) | Ngoại vi RMT: điều khiển LED WS2812 (`WS2812`) và thu/phát hồng ngoại NEC (`IR_NEC`) |  |
+| [14_LittleFS](01-Basic/14_LittleFS) | Hệ thống file LittleFS trên flash (thay thế SPIFFS) |  |
 
-### [02-Sensor-I2C](02-Sensor-I2C) – Cảm biến & màn hình I2C
+### [02-Sensor-Module](02-Sensor-Module) – Cảm biến & module ngoại vi
 
-Quét bus I2C, màn hình OLED và các cảm biến I2C thông dụng.
+Cảm biến, màn hình, thẻ nhớ, âm thanh, động cơ… – mọi bài dùng module gắn ngoài ESP32.
 
 | Bài | Nội dung | Bài viết |
 |---|---|---|
-| [01_I2C_Scan](02-Sensor-I2C/01_I2C_Scan) | Quét địa chỉ thiết bị I2C |  |
-| [02_OLED_SH1106](02-Sensor-I2C/02_OLED_SH1106) | Màn hình OLED SH1106 |  |
-| [03_SSD1306_BME280](02-Sensor-I2C/03_SSD1306_BME280) | Đọc cảm biến BME280, hiển thị lên OLED SSD1306 |  |
-| [04_MPU6050](02-Sensor-I2C/04_MPU6050) | Cảm biến gia tốc / con quay MPU6050 |  |
-| [05_APDS9960](02-Sensor-I2C/05_APDS9960) | Cảm biến cử chỉ / màu APDS9960 |  |
+| [01_I2C_Scan](02-Sensor-Module/01_I2C_Scan) | Quét địa chỉ thiết bị I2C |  |
+| [02_OLED_SH1106](02-Sensor-Module/02_OLED_SH1106) | Màn hình OLED SH1106 |  |
+| [03_SSD1306_BME280](02-Sensor-Module/03_SSD1306_BME280) | Đọc cảm biến BME280, hiển thị lên OLED SSD1306 |  |
+| [04_MPU6050](02-Sensor-Module/04_MPU6050) | Cảm biến gia tốc / con quay MPU6050 |  |
+| [05_APDS9960](02-Sensor-Module/05_APDS9960) | Cảm biến cử chỉ / màu APDS9960 |  |
+| [06_LCD1602_I2C](02-Sensor-Module/06_LCD1602_I2C) | Màn hình LCD 1602 giao tiếp I2C (PCF8574) |  |
+| [07_RTC_DS3231](02-Sensor-Module/07_RTC_DS3231) | Đồng hồ thời gian thực DS3231 |  |
+| [08_RFID_RC522](02-Sensor-Module/08_RFID_RC522) | Đọc thẻ RFID RC522 (SPI) – khóa cửa bằng thẻ |  |
+| [09_Keypad_4x4](02-Sensor-Module/09_Keypad_4x4) | Bàn phím ma trận 4x4 – khóa mật khẩu |  |
+| [10_Servo](02-Sensor-Module/10_Servo) | Điều khiển servo bằng LEDC, không cần thư viện |  |
+| [11_Stepper_A4988](02-Sensor-Module/11_Stepper_A4988) | Động cơ bước với driver A4988, có tăng/giảm tốc |  |
+| [12_SD_Card](02-Sensor-Module/12_SD_Card) | Đọc/ghi thẻ microSD qua SPI |  |
+| [13_SD_Datalogger_NTP](02-Sensor-Module/13_SD_Datalogger_NTP) | Ghi log dữ liệu ra file CSV trên thẻ SD kèm giờ NTP |  |
+| [14_I2S_Speaker_MAX98357A](02-Sensor-Module/14_I2S_Speaker_MAX98357A) | Phát âm thanh I2S ra loa qua MAX98357A |  |
+| [15_I2S_Mic_INMP441](02-Sensor-Module/15_I2S_Mic_INMP441) | Đọc micro số I2S INMP441, đo âm lượng |  |
+| [16_MP3_Player_SD](02-Sensor-Module/16_MP3_Player_SD) | Máy nghe nhạc MP3 từ thẻ SD |  |
+| [17_Web_Radio](02-Sensor-Module/17_Web_Radio) | Radio internet phát qua loa I2S |  |
+| [18_TFT_eSPI](02-Sensor-Module/18_TFT_eSPI) | Màn hình TFT ILI9341/ST7789 với thư viện TFT_eSPI |  |
+| [19_LVGL](02-Sensor-Module/19_LVGL) | Giao diện đồ họa LVGL trên màn TFT |  |
 
 ### [03-WebServer](03-WebServer) – Web Server
 
@@ -69,10 +87,11 @@ ESP32 làm Web Server: Station, Access Point, WebSocket, SPIFFS và giao tiếp 
 | [04_SPIFFS_Webserver](03-WebServer/04_SPIFFS_Webserver) | Web Server lưu giao diện trên SPIFFS |  |
 | [05_SPIFFS_Data_Storage](03-WebServer/05_SPIFFS_Data_Storage) | Lưu dữ liệu bền vững vào SPIFFS |  |
 | [06_Two_Boards](03-WebServer/06_Two_Boards) | Giao tiếp 2 board ESP32 qua HTTP (`BoardA_Server` + `BoardB_Client`) |  |
+| [07_mDNS_StaticIP_Reconnect](03-WebServer/07_mDNS_StaticIP_Reconnect) | Truy cập bằng `esp32.local` (mDNS), IP tĩnh, tự kết nối lại khi mất WiFi |  |
 
 ### [04-Protocol](04-Protocol) – Giao thức truyền thông
 
-HTTP, MQTT, HTTPS, TCP, UDP, ESP-NOW và WiFi Mesh.
+HTTP, MQTT, HTTPS, TCP, UDP, ESP-NOW, WiFi Mesh và Modbus RTU.
 
 | Bài | Nội dung | Bài viết |
 |---|---|---|
@@ -84,6 +103,7 @@ HTTP, MQTT, HTTPS, TCP, UDP, ESP-NOW và WiFi Mesh.
 | [06_UDP](04-Protocol/06_UDP) | UDP |  |
 | [07_ESPNOW](04-Protocol/07_ESPNOW) | ESP-NOW, không cần router (`Sender` + `Receiver`) |  |
 | [08_WiFi_Mesh](04-Protocol/08_WiFi_Mesh) | WiFi Mesh (painlessMesh) |  |
+| [09_Modbus_RTU_RS485](04-Protocol/09_Modbus_RTU_RS485) | Modbus RTU qua RS485 – đọc cảm biến công nghiệp XY-MD02 |  |
 
 ### [05-Bluetooth](05-Bluetooth) – Bluetooth
 
@@ -117,6 +137,7 @@ Không hardcode WiFi trong code, và cập nhật firmware không cần mạch n
 | [02_WiFiManager_NTP](07-OTA-WiFiConfig/02_WiFiManager_NTP) | WiFiManager (captive portal) + lấy giờ NTP |  |
 | [03_OTA_LAN_WebBrowser](07-OTA-WiFiConfig/03_OTA_LAN_WebBrowser) | Nạp firmware qua WiFi nội bộ bằng trình duyệt (OTA) | [📖 Đọc](https://khuenguyencreator.com/lap-trinh-esp32-fota-nap-firmware-tu-xa-bang-local-wifi/) |
 | [04_FOTA_Internet_OTAdrive](07-OTA-WiFiConfig/04_FOTA_Internet_OTAdrive) | Cập nhật firmware qua Internet với OTAdrive (FOTA) | [📖 Đọc](https://khuenguyencreator.com/lap-trinh-esp32-fota-nap-firmware-qua-mang-internet-voi-ota-drive/) |
+| [05_ArduinoOTA_PlatformIO](07-OTA-WiFiConfig/05_ArduinoOTA_PlatformIO) | Nạp code qua WiFi ngay từ PlatformIO (ArduinoOTA / espota) |  |
 
 ### [08-FreeRTOS](08-FreeRTOS) – FreeRTOS
 
@@ -145,6 +166,8 @@ Các dự án hoàn chỉnh kết hợp kiến thức từ các nhóm trước.
 | [02_Neopixel_Light](10-Projects/02_Neopixel_Light) | Đèn LED NeoPixel nhiều hiệu ứng |  |
 | [03_Reaction_Game](10-Projects/03_Reaction_Game) | Game đo phản xạ |  |
 | [04_GPS_Locator](10-Projects/04_GPS_Locator) | Định vị GPS NEO-6M |  |
+
+Các bài sắp làm: xem [ROADMAP.md](ROADMAP.md).
 
 ## Cách sử dụng
 

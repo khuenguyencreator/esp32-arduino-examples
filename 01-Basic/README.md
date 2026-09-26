@@ -15,5 +15,8 @@ GPIO, ADC, PWM, DAC, ngắt, Timer, Touch và Deep Sleep. Nên học trước ti
 | [08_1_DeepSleep_Timer_WakeUp](08_1_DeepSleep_Timer_WakeUp) | Deep Sleep – đánh thức bằng Timer |  |
 | [08_2_DeepSleep_Touch_WakeUp](08_2_DeepSleep_Touch_WakeUp) | Deep Sleep – đánh thức bằng Touch |  |
 | [08_3_DeepSleep_EXT_WakeUp](08_3_DeepSleep_EXT_WakeUp) | Deep Sleep – đánh thức bằng chân ngoài |  |
+| [12_Hall_Sensor_Internal_Temp](12_Hall_Sensor_Internal_Temp) | Cảm biến Hall và nhiệt độ có sẵn trong chip |  |
+| [13_RMT](13_RMT) | Ngoại vi RMT: điều khiển LED WS2812 (`WS2812`) và thu/phát hồng ngoại NEC (`IR_NEC`) |  |
+| [14_LittleFS](14_LittleFS) | Hệ thống file LittleFS trên flash (thay thế SPIFFS) |  |
 
 Cách build/nạp và các lưu ý chung: xem [README chính](../README.md).

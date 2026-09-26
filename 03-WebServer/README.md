@@ -10,5 +10,6 @@ ESP32 làm Web Server: Station, Access Point, WebSocket, SPIFFS và giao tiếp 
 | [04_SPIFFS_Webserver](04_SPIFFS_Webserver) | Web Server lưu giao diện trên SPIFFS |  |
 | [05_SPIFFS_Data_Storage](05_SPIFFS_Data_Storage) | Lưu dữ liệu bền vững vào SPIFFS |  |
 | [06_Two_Boards](06_Two_Boards) | Giao tiếp 2 board ESP32 qua HTTP (`BoardA_Server` + `BoardB_Client`) |  |
+| [07_mDNS_StaticIP_Reconnect](07_mDNS_StaticIP_Reconnect) | Truy cập bằng `esp32.local` (mDNS), IP tĩnh, tự kết nối lại khi mất WiFi |  |
 
 Cách build/nạp và các lưu ý chung: xem [README chính](../README.md).

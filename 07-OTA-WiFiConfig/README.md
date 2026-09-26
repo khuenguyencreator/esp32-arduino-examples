@@ -8,5 +8,6 @@ Không hardcode WiFi trong code, và cập nhật firmware không cần mạch n
 | [02_WiFiManager_NTP](02_WiFiManager_NTP) | WiFiManager (captive portal) + lấy giờ NTP |  |
 | [03_OTA_LAN_WebBrowser](03_OTA_LAN_WebBrowser) | Nạp firmware qua WiFi nội bộ bằng trình duyệt (OTA) | [📖 Đọc](https://khuenguyencreator.com/lap-trinh-esp32-fota-nap-firmware-tu-xa-bang-local-wifi/) |
 | [04_FOTA_Internet_OTAdrive](04_FOTA_Internet_OTAdrive) | Cập nhật firmware qua Internet với OTAdrive (FOTA) | [📖 Đọc](https://khuenguyencreator.com/lap-trinh-esp32-fota-nap-firmware-qua-mang-internet-voi-ota-drive/) |
+| [05_ArduinoOTA_PlatformIO](05_ArduinoOTA_PlatformIO) | Nạp code qua WiFi ngay từ PlatformIO (ArduinoOTA / espota) |  |
 
 Cách build/nạp và các lưu ý chung: xem [README chính](../README.md).

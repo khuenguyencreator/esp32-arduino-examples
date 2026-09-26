@@ -1,6 +1,6 @@
 # 04-Protocol – Giao thức truyền thông
 
-HTTP, MQTT, HTTPS, TCP, UDP, ESP-NOW và WiFi Mesh.
+HTTP, MQTT, HTTPS, TCP, UDP, ESP-NOW, WiFi Mesh và Modbus RTU.
 
 | Bài | Nội dung | Bài viết |
 |---|---|---|
@@ -12,5 +12,6 @@ HTTP, MQTT, HTTPS, TCP, UDP, ESP-NOW và WiFi Mesh.
 | [06_UDP](06_UDP) | UDP |  |
 | [07_ESPNOW](07_ESPNOW) | ESP-NOW, không cần router (`Sender` + `Receiver`) |  |
 | [08_WiFi_Mesh](08_WiFi_Mesh) | WiFi Mesh (painlessMesh) |  |
+| [09_Modbus_RTU_RS485](09_Modbus_RTU_RS485) | Modbus RTU qua RS485 – đọc cảm biến công nghiệp XY-MD02 |  |
 
 Cách build/nạp và các lưu ý chung: xem [README chính](../README.md).
