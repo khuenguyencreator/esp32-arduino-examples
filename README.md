@@ -1,5 +1,7 @@
 # ESP32 Arduino Examples
 
+[![Build](https://github.com/khuenguyencreator/esp32-arduino-examples/actions/workflows/build.yml/badge.svg)](https://github.com/khuenguyencreator/esp32-arduino-examples/actions/workflows/build.yml)
+
 Code ví dụ lập trình **ESP32** với **Arduino framework** trên **PlatformIO**, từ ngoại vi cơ bản (GPIO, ADC, PWM, Timer…) đến WiFi, Web Server, BLE, IoT và các dự án hoàn chỉnh. Code đi kèm series [Lập trình ESP32 từ A tới Z](https://khuenguyencreator.com/lap-trinh-esp32-tu-a-toi-z/) trên blog [khuenguyencreator.com](https://khuenguyencreator.com).
 
 - Board: ESP32 DOIT DevKit V1 (`esp32doit-devkit-v1`); riêng nhóm `09-ESP32-CAM` dùng board **ESP32-CAM** (`esp32cam`)
@@ -168,6 +170,8 @@ Các dự án hoàn chỉnh kết hợp kiến thức từ các nhóm trước.
 | [04_GPS_Locator](10-Projects/04_GPS_Locator) | Định vị GPS NEO-6M |  |
 
 Các bài sắp làm: xem [ROADMAP.md](ROADMAP.md).
+
+Mọi project được build tự động bằng GitHub Actions mỗi lần có code mới, xem [docs/CI.md](docs/CI.md).
 
 ## Cách sử dụng
 

@@ -1,0 +1,92 @@
+name: Build
+
+# Build tat ca project PlatformIO trong repo moi khi co code moi, de chac chan
+# moi bai vi du deu bien dich duoc. Huong dan: xem docs/CI.md
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      filter:
+        description: "Chi build project co duong dan chua chuoi nay (vd: 02-Sensor-Module hoac 19_LVGL). De trong = build tat ca"
+        required: false
+        default: ""
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  discover:
+    name: Tim project
+    runs-on: ubuntu-latest
+    outputs:
+      projects: ${{ steps.find.outputs.projects }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: find
+        name: Liet ke thu muc co platformio.ini
+        env:
+          FILTER: ${{ github.event.inputs.filter }}
+        run: |
+          projects=$(find . -name platformio.ini -not -path "*/.pio/*" \
+            | sed 's|^\./||; s|/platformio.ini$||' \
+            | { grep -F -- "${FILTER:-}" || true; } \
+            | sort \
+            | jq -R -s -c 'split("\n") | map(select(length > 0))')
+          echo "Tim thay: $projects"
+          if [ "$projects" = "[]" ]; then
+            echo "::error::Khong co project nao khop voi filter '${FILTER}'"
+            exit 1
+          fi
+          echo "projects=$projects" >> "$GITHUB_OUTPUT"
+
+  build:
+    name: ${{ matrix.project }}
+    needs: discover
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false   # 1 bai loi van build tiep cac bai con lai
+      matrix:
+        project: ${{ fromJson(needs.discover.outputs.projects) }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Toolchain ESP32 nang vai tram MB, cache lai de lan sau build nhanh hon
+      - name: Cache PlatformIO
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.platformio
+            ~/.cache/pip
+          key: pio-${{ runner.os }}-${{ hashFiles('**/platformio.ini') }}
+          restore-keys: |
+            pio-${{ runner.os }}-
+
+      - name: Cai PlatformIO
+        run: pip install --upgrade platformio
+
+      - name: Build
+        run: pio run -d "${{ matrix.project }}"
+
+  # 1 job tong ket duy nhat - dung lam "required check" khi bat bao ve nhanh master
+  all-builds:
+    name: Tat ca build
+    needs: build
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kiem tra ket qua
+        run: |
+          if [ "${{ needs.build.result }}" != "success" ]; then
+            echo "::error::Co project build loi, xem cac job bi do phia tren"
+            exit 1
+          fi
+          echo "Tat ca project deu build thanh cong"
