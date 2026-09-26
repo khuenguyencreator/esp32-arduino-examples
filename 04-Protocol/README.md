@@ -1,6 +1,6 @@
 # 04-Protocol – Giao thức truyền thông
 
-HTTP, MQTT, HTTPS, TCP, UDP, WiFi Mesh và ESP-NOW.
+HTTP, MQTT, HTTPS, TCP, UDP, ESP-NOW và WiFi Mesh.
 
 | Bài | Nội dung | Bài viết |
 |---|---|---|
@@ -10,7 +10,7 @@ HTTP, MQTT, HTTPS, TCP, UDP, WiFi Mesh và ESP-NOW.
 | [04_HTTPS](04_HTTPS) | Gọi API qua HTTPS (TLS) |  |
 | [05_TCP_Socket](05_TCP_Socket) | TCP Socket server |  |
 | [06_UDP](06_UDP) | UDP |  |
-| [07_WiFi_Mesh](07_WiFi_Mesh) | WiFi Mesh (painlessMesh) |  |
-| [08_ESPNOW](08_ESPNOW) | ESP-NOW, không cần router (`Sender` + `Receiver`) |  |
+| [07_ESPNOW](07_ESPNOW) | ESP-NOW, không cần router (`Sender` + `Receiver`) |  |
+| [08_WiFi_Mesh](08_WiFi_Mesh) | WiFi Mesh (painlessMesh) |  |
 
 Cách build/nạp và các lưu ý chung: xem [README chính](../README.md).

@@ -10,7 +10,7 @@
 const int button = 4;
 
 // Thay bang dia chi MAC that cua board Receiver - lay tu Serial Monitor
-// cua board do sau khi nap code 04-Protocol/08_ESPNOW/Receiver
+// cua board do sau khi nap code 04-Protocol/07_ESPNOW/Receiver
 uint8_t receiverMac[] = {0xAA, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF};
 
 typedef struct struct_message {

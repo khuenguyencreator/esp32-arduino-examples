@@ -108,6 +108,11 @@ void setup() {
     return;
   }
 
+  // Bo qua cac file anh da co tren the tu lan chay truoc, tranh ghi de
+  while (SD_MMC.exists("/photo_" + String(photoCount) + ".jpg")) {
+    photoCount++;
+  }
+
   Serial.println("San sang - nhan nut de chup anh");
 }
 

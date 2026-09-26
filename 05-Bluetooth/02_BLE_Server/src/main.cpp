@@ -34,7 +34,7 @@ class ServerCallbacks : public BLEServerCallbacks {
 
 class LedCallbacks : public BLECharacteristicCallbacks {
   void onWrite(BLECharacteristic *characteristic) override {
-    String value = characteristic->getValue();
+    String value = characteristic->getValue().c_str(); // .c_str() de chay duoc ca core 2.x (std::string) lan 3.x (String)
     if (value.length() > 0) {
       Serial.print("Nhan gia tri ghi vao characteristic: ");
       Serial.println(value);

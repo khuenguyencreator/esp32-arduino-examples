@@ -64,6 +64,9 @@ bool initCamera() {
   return esp_camera_init(&config) == ESP_OK;
 }
 
+// Luu y: handleStream() chay vong lap gui anh lien tuc va chiem luon loop(),
+// nen moi luc chi 1 trinh duyet xem duoc stream - trinh duyet thu 2 phai cho
+// trinh duyet dau dong tab.
 void handleStream() {
   WiFiClient client = server.client();
 

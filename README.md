@@ -72,7 +72,7 @@ ESP32 làm Web Server: Station, Access Point, WebSocket, SPIFFS và giao tiếp 
 
 ### [04-Protocol](04-Protocol) – Giao thức truyền thông
 
-HTTP, MQTT, HTTPS, TCP, UDP, WiFi Mesh và ESP-NOW.
+HTTP, MQTT, HTTPS, TCP, UDP, ESP-NOW và WiFi Mesh.
 
 | Bài | Nội dung | Bài viết |
 |---|---|---|
@@ -82,8 +82,8 @@ HTTP, MQTT, HTTPS, TCP, UDP, WiFi Mesh và ESP-NOW.
 | [04_HTTPS](04-Protocol/04_HTTPS) | Gọi API qua HTTPS (TLS) |  |
 | [05_TCP_Socket](04-Protocol/05_TCP_Socket) | TCP Socket server |  |
 | [06_UDP](04-Protocol/06_UDP) | UDP |  |
-| [07_WiFi_Mesh](04-Protocol/07_WiFi_Mesh) | WiFi Mesh (painlessMesh) |  |
-| [08_ESPNOW](04-Protocol/08_ESPNOW) | ESP-NOW, không cần router (`Sender` + `Receiver`) |  |
+| [07_ESPNOW](04-Protocol/07_ESPNOW) | ESP-NOW, không cần router (`Sender` + `Receiver`) |  |
+| [08_WiFi_Mesh](04-Protocol/08_WiFi_Mesh) | WiFi Mesh (painlessMesh) |  |
 
 ### [05-Bluetooth](05-Bluetooth) – Bluetooth
 
@@ -153,7 +153,7 @@ Các dự án hoàn chỉnh kết hợp kiến thức từ các nhóm trước.
    ```bash
    git clone https://github.com/khuenguyencreator/esp32-arduino-examples.git
    ```
-3. Trong VS Code chọn **PlatformIO → Open Project**, trỏ tới thư mục bài muốn chạy, ví dụ `01-Basic/01_GPIO` (thư mục có file `platformio.ini`). Với bài dùng 2 board (`03-WebServer/06_Two_Boards`, `04-Protocol/08_ESPNOW`), mở và nạp từng project con cho từng board.
+3. Trong VS Code chọn **PlatformIO → Open Project**, trỏ tới thư mục bài muốn chạy, ví dụ `01-Basic/01_GPIO` (thư mục có file `platformio.ini`). Với bài dùng 2 board (`03-WebServer/06_Two_Boards`, `04-Protocol/07_ESPNOW`), mở và nạp từng project con cho từng board.
 4. Bấm **Build** rồi **Upload**, mở **Serial Monitor** để xem kết quả.
 5. Với các bài dùng WiFi / Cloud, sửa SSID, mật khẩu và API key trong `src/main.cpp` trước khi nạp.
 

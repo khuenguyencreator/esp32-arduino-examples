@@ -15,7 +15,7 @@ const char* password = "Mat_Khau_Wifi";
 const uint16_t udpPort = 4210;
 WiFiUDP udp;
 
-char incomingPacket[255];
+char incomingPacket[256]; // 255 byte du lieu + 1 byte ket thuc chuoi '\0'
 
 void setup() {
   Serial.begin(115200);

@@ -47,4 +47,5 @@ void loop() {
   display.write(167);
   display.setTextSize(2);
   display.print("C");
+  display.display(); // day noi dung buffer ra man hinh that
 }

@@ -20,13 +20,30 @@ const char* chatId = "123456789";
 const int led = 26;
 long lastUpdateId = 0;
 
+// Ma hoa noi dung tin nhan truoc khi gan len URL (dau cach, dau tieng Viet,
+// ky tu dac biet...) - neu khong, request se bi hong va Telegram khong nhan.
+String urlEncode(const String &text) {
+  String encoded = "";
+  char buf[4];
+  for (size_t i = 0; i < text.length(); i++) {
+    char c = text[i];
+    if (isalnum((unsigned char)c) || c == '-' || c == '_' || c == '.' || c == '~') {
+      encoded += c;
+    } else {
+      snprintf(buf, sizeof(buf), "%%%02X", (unsigned char)c);
+      encoded += buf;
+    }
+  }
+  return encoded;
+}
+
 void sendTelegramMessage(String text) {
   WiFiClientSecure client;
   client.setInsecure();
   HTTPClient https;
 
   String url = "https://api.telegram.org/bot" + String(botToken) +
-               "/sendMessage?chat_id=" + String(chatId) + "&text=" + text;
+               "/sendMessage?chat_id=" + String(chatId) + "&text=" + urlEncode(text);
 
   if (https.begin(client, url)) {
     https.GET();
@@ -43,6 +60,9 @@ void checkTelegramMessages() {
                "/getUpdates?offset=" + String(lastUpdateId + 1) + "&timeout=10";
 
   if (https.begin(client, url)) {
+    // Telegram giu ket noi toi 10 giay (timeout=10) cho tin nhan moi, nen
+    // phai tang timeout cua HTTPClient (mac dinh 5 giay) len lau hon muc do.
+    https.setTimeout(15000);
     int httpCode = https.GET();
 
     if (httpCode == 200) {

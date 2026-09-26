@@ -25,6 +25,9 @@ void logToGoogleSheet(float temperature, float humidity) {
                "&humidity=" + String(humidity);
 
   if (https.begin(client, url)) {
+    // Apps Script tra ve 302 (chuyen huong sang googleusercontent.com) sau khi
+    // ghi xong - bat theo chuyen huong de nhan duoc ma 200 va noi dung tra ve.
+    https.setFollowRedirects(HTTPC_STRICT_FOLLOW_REDIRECTS);
     int httpCode = https.GET();
 
     if (httpCode > 0) {
